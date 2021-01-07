@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://LevelGeometry/10x1x10.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/PlayerRB.tscn" type="PackedScene" id=2]
+[ext_resource path="res://LevelGeometry/1x1x1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://LevelGeometry/7x1x7.tscn" type="PackedScene" id=4]
+[ext_resource path="res://LevelGeometry/5x1x5.tscn" type="PackedScene" id=5]
+
+[node name="TestLevel" type="Spatial"]
+
+[node name="10x1x10" parent="." instance=ExtResource( 1 )]
+
+[node name="10x1x10_2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, -9 )
+
+[node name="PlayerRB" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4, -4 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -5.96046e-08, -0.840718, 0.541474, 0, 0.541474, 0.840718, -1, 5.01107e-08, -3.22744e-08, 12.0418, 13.059, -0.0762577 )
+
+[node name="1x1x1" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 0 )
+
+[node name="5x1x5" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5, 4, 9 )
+
+[node name="7x1x7" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -10, 6, 3 )
