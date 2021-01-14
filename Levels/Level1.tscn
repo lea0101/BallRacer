@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://LevelGeometry/10x1x10.tscn" type="PackedScene" id=1]
+[ext_resource path="res://LevelGeometry/5x1x5.tscn" type="PackedScene" id=2]
+[ext_resource path="res://LevelGeometry/7x1x7.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/PlayerRB.tscn" type="PackedScene" id=4]
+[ext_resource path="res://LevelGeometry/2x1x2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://LevelTriggers/PlatformLift.tscn" type="PackedScene" id=6]
+[ext_resource path="res://LevelTriggers/SlidingDoors.tscn" type="PackedScene" id=7]
 
 [node name="Level1" type="Spatial"]
 
@@ -17,7 +23,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0 )
 
 [node name="10x1x17" parent="GamePlate/Line1" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.9926, 0.0238466, -0.0173712 )
 
 [node name="10x1x18" parent="GamePlate/Line1" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 0 )
@@ -26,6 +32,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
 
 [node name="10x1x10" parent="GamePlate/Line2" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566812, 0 )
 
 [node name="10x1x15" parent="GamePlate/Line2" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
@@ -71,7 +78,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0 )
 
 [node name="10x1x18" parent="GamePlate/Line4" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 1.90241, 0 )
 
 [node name="Line5" type="Spatial" parent="GamePlate"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 80 )
@@ -89,3 +96,32 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0 )
 
 [node name="10x1x18" parent="GamePlate/Line5" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 0 )
+
+[node name="5x1x5" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 45, 4, 11 )
+
+[node name="5x1x6" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0.866025, -3.78552e-08, 0, -4.37114e-08, -1, -0.866025, 0.5, -2.18557e-08, 48.5158, 4, 39.0879 )
+
+[node name="5x1x7" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.965926, 0.258819, -1.13133e-08, 0, -4.37114e-08, -1, -0.258819, -0.965926, 4.2222e-08, 12.4338, 4, 66.8978 )
+
+[node name="7x1x7" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 66.2048, 1.73971, 0 )
+
+[node name="7x1x8" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79.1793, 3.53993, 0 )
+
+[node name="2x1x2" parent="." instance=ExtResource( 5 )]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 40, 45, 83.0725 )
+
+[node name="PlatformLift" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.499011, 40 )
+
+[node name="PlayerRB" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5413, 1.7598, 56.6613 )
+
+[node name="SlidingDoors" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7912, 1.39961, 30.7811 )
