@@ -1,12 +1,29 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://LevelGeometry/10x1x10.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelGeometry/5x1x5.tscn" type="PackedScene" id=2]
 [ext_resource path="res://LevelGeometry/7x1x7.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Player/PlayerRB.tscn" type="PackedScene" id=4]
-[ext_resource path="res://LevelGeometry/2x1x2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player/PlayerKB.tscn" type="PackedScene" id=4]
 [ext_resource path="res://LevelTriggers/PlatformLift.tscn" type="PackedScene" id=6]
 [ext_resource path="res://LevelTriggers/SlidingDoors.tscn" type="PackedScene" id=7]
+[ext_resource path="res://LevelTriggers/Trapdoor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://LevelTriggers/FireTrigger.tscn" type="PackedScene" id=9]
+[ext_resource path="res://LevelTriggers/KillFloor.gd" type="Script" id=11]
+[ext_resource path="res://LevelTriggers/Spring.tscn" type="PackedScene" id=12]
+[ext_resource path="res://LevelGeometry/1x2Cylinder.tscn" type="PackedScene" id=13]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+albedo_color = Color( 1, 0, 0, 1 )
+emission_enabled = true
+emission = Color( 0.282353, 0.0666667, 0.0666667, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [node name="Level1" type="Spatial"]
 
@@ -23,7 +40,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0 )
 
 [node name="10x1x17" parent="GamePlate/Line1" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.9926, 0.0238466, -0.0173712 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.02, 0, -0.039 )
 
 [node name="10x1x18" parent="GamePlate/Line1" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 0 )
@@ -54,28 +71,26 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40 )
 [node name="10x1x15" parent="GamePlate/Line3" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
 
-[node name="10x1x16" parent="GamePlate/Line3" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0 )
-
 [node name="10x1x17" parent="GamePlate/Line3" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0 )
 
 [node name="10x1x18" parent="GamePlate/Line3" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 16.441 )
 
 [node name="Line4" type="Spatial" parent="GamePlate"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 60 )
 
 [node name="10x1x10" parent="GamePlate/Line4" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.53151, 0 )
 
 [node name="10x1x15" parent="GamePlate/Line4" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
 
 [node name="10x1x16" parent="GamePlate/Line4" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 7.9502, 0 )
 
 [node name="10x1x17" parent="GamePlate/Line4" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.2896, 1.90735e-06, 0.165619 )
 
 [node name="10x1x18" parent="GamePlate/Line4" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 1.90241, 0 )
@@ -97,22 +112,62 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0 )
 [node name="10x1x18" parent="GamePlate/Line5" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 0 )
 
-[node name="5x1x5" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 45, 4, 11 )
+[node name="DoorRoom" type="Spatial" parent="."]
+transform = Transform( 0.422618, 0, -0.906308, 0, 1, 0, 0.906308, 0, 0.422618, 47.8528, 0, -15.2346 )
+
+[node name="5x1x5" parent="DoorRoom" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, -1, 0, -1.62921e-07, 2.65431e-14, -1, 1, -1.62921e-07, -1.62921e-07, 30.5017, 4, -4.97363 )
+
+[node name="5x1x10" parent="DoorRoom" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, -1, 0, -1.62921e-07, 2.65431e-14, -1, 1, -1.62921e-07, -1.62921e-07, 12.7859, 4, -4.97363 )
+
+[node name="5x1x9" parent="DoorRoom" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, -1, 0, -1.62921e-07, 2.65431e-14, -1, 1, -1.62921e-07, -1.62921e-07, 30.5017, 4, 4.87208 )
+
+[node name="5x1x8" parent="DoorRoom" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, -1, 0, -1.62921e-07, 2.65431e-14, -1, 1, -1.62921e-07, -1.62921e-07, 12.7513, 4, 4.87208 )
+
+[node name="SlidingDoors" parent="DoorRoom" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 21.7695, 1.39961, 15.4888 )
 
 [node name="5x1x6" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.5, 0.866025, -3.78552e-08, 0, -4.37114e-08, -1, -0.866025, 0.5, -2.18557e-08, 48.5158, 4, 39.0879 )
 
 [node name="5x1x7" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.965926, 0.258819, -1.13133e-08, 0, -4.37114e-08, -1, -0.258819, -0.965926, 4.2222e-08, 12.4338, 4, 66.8978 )
+transform = Transform( -0.965926, 0.258819, -1.13133e-08, 0, -4.37114e-08, -1, -0.258819, -0.965926, 4.2222e-08, 12.434, 5, 68.267 )
 
-[node name="7x1x7" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 66.2048, 1.73971, 0 )
+[node name="5x1x8" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.260336, 0.965518, -4.22041e-08, 0, -4.37114e-08, -1, -0.965518, -0.260336, 1.13797e-08, 5.793, 5, 61.663 )
 
-[node name="7x1x8" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79.1793, 3.53993, 0 )
+[node name="Ramp" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 78.3831, 3.69581, 0 )
 
-[node name="2x1x2" parent="." instance=ExtResource( 5 )]
+[node name="7x1x8" parent="Ramp" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.796211, -0.15588, 0 )
+
+[node name="7x1x10" parent="Ramp" instance=ExtResource( 3 )]
+transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0.796211, 5.24804, 61.1837 )
+
+[node name="7x1x9" parent="Ramp" instance=ExtResource( 3 )]
+transform = Transform( -1.57369e-07, 4.2167e-08, -1, 0.258819, 0.965926, 0, 0.965926, -0.258819, -1.62921e-07, 0.636215, 1.85348, 14.0645 )
+
+[node name="7x1x7" parent="Ramp" instance=ExtResource( 3 )]
+transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -12.1783, -1.9561, 0 )
+
+[node name="1x2Cylinder" parent="Ramp" instance=ExtResource( 13 )]
+transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0.210869, 4.20967, 28.1505 )
+
+[node name="1x2Cylinder2" parent="Ramp" instance=ExtResource( 13 )]
+transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0.210869, 4.20967, 35.5741 )
+
+[node name="1x2Cylinder3" parent="Ramp" instance=ExtResource( 13 )]
+transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0.210869, 4.20967, 42.4871 )
+
+[node name="1x2Cylinder4" parent="Ramp" instance=ExtResource( 13 )]
+transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0.210869, 4.20966, 50.2172 )
+
+[node name="Spring" parent="Ramp" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 0.999998, 0.00216421, 0, -0.00216421, 0.999998, 0.848175, 5.90169, 62.5163 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 40, 45, 83.0725 )
@@ -120,8 +175,42 @@ transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 40, 45, 83.
 [node name="PlatformLift" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.499011, 40 )
 
-[node name="PlayerRB" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5413, 1.7598, 56.6613 )
+[node name="PlayerKB" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.3842, 2.73798, 84.938 )
 
-[node name="SlidingDoors" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7912, 1.39961, 30.7811 )
+[node name="Trigger" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 40, 0.5, 40 )
+
+[node name="Fire" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11211, 0 )
+
+[node name="KillFloor" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.3978, 0 )
+script = ExtResource( 11 )
+
+[node name="CollisionShape" type="CollisionShape" parent="KillFloor"]
+transform = Transform( 75, 0, 0, 0, 1, 0, 0, 0, 75, 50, 0, 50 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="KillFloor"]
+transform = Transform( 75, 0, 0, 0, 1, 0, 0, 0, 75, 50, 0, 50 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="SpawnPoint1" type="Position3D" parent="KillFloor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.1764, 16.6385, 85.1043 )
+
+[node name="Walls" type="Spatial" parent="."]
+
+[node name="10x1x10" parent="Walls" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 10, 90 )
+
+[node name="10x1x11" parent="Walls" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 20, 10, 90 )
+
+[node name="10x1x12" parent="Walls" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 40, 10, 90 )
+
+[node name="10x1x13" parent="Walls" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 80, 10, 90 )
+[connection signal="body_entered" from="KillFloor" to="KillFloor" method="_on_KillFloor_body_entered"]

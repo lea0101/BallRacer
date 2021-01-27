@@ -5,6 +5,7 @@
 [sub_resource type="BoxShape" id=2]
 
 [node name="1x1x1" type="StaticBody"]
+collision_mask = 2147483650
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )

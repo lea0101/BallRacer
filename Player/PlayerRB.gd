@@ -7,4 +7,7 @@ func _physics_process(delta):
 	velocity.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	apply_central_impulse(velocity.normalized() * speed)
 
-
+	
+func apply_force(dir:Vector3):
+	apply_impulse(Vector3.ZERO,dir)
+	
