@@ -176,7 +176,7 @@ transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 40, 45, 83.
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.499011, 40 )
 
 [node name="PlayerKB" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.3842, 2.73798, 84.938 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.3842, 2.73798, 80.1092 )
 
 [node name="Trigger" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 40, 0.5, 40 )

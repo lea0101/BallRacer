@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://LevelGeometry/10x1x10.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/PlayerKB.tscn" type="PackedScene" id=2]
 [ext_resource path="res://LevelGeometry/1x1x1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://LevelTriggers/Turret.tscn" type="PackedScene" id=4]
 [ext_resource path="res://LevelGeometry/5x1x5.tscn" type="PackedScene" id=5]
 [ext_resource path="res://LevelTriggers/Popper.tscn" type="PackedScene" id=7]
 
@@ -22,7 +23,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 0 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5, 4, 9 )
 
 [node name="Popper" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519503, 6.11422 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.388414, 6.11422 )
+
+[node name="Turret" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94042, 2.00317, 0.30691 )
 
 [node name="PlayerKB" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39921, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.99688, 2.84607, -7.85081 )
