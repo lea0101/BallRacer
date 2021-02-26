@@ -28,8 +28,12 @@ func fire():
 	print("Firing at: " + str(target.translation))
 	var projectile = projectile_prefab.instance()
 	get_parent().add_child(projectile)	
-	projectile.translation=projectile_launcher.translation
-	projectile.rotation=projectile_launcher.rotation
+	
+	projectile.scale = Vector3.ONE
+	
+	projectile.global_transform=projectile_launcher.global_transform
+	projectile.look_at(target.translation, Vector3.UP)
+	projectile.apply_central_impulse(-projectile.transform.basis.z * projectile.force)
 
 func _on_Turret_body_entered(body):
 	if body.collision_layer==2:
